@@ -12,11 +12,9 @@ services:
     build: .
     command: python /code/manage.py runserver 0.0.0.0:8000
     environment: 
-      - ENVIRONMENT=development
-      - DEBUG=True
+      - ENVIRONMENT=production
+      - DEBUG=False
       - SECRET_KEY=sodeiqdoh)erbz3k1-#ugli)!y_y7s82joj&)3*48kezsq+_gc
-    volumes:
-    - .:/code
     ports: 
     - 8000:8000
     depends_on: 
