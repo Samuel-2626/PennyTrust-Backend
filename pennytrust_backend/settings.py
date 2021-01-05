@@ -12,7 +12,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.environ.get('DEBUG', default='True'))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['fathomless-beach-00475.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -131,6 +131,8 @@ if ENVIRONMENT == 'production':
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
     SECURE_CONTENT_TYPE_NOSNIFF = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 
 
 # Heroku
