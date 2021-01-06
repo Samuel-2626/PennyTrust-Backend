@@ -16,7 +16,7 @@ services:
     environment: 
       - ENVIRONMENT=development
       - DEBUG=1
-      - SECRET_KEY=sodeiqdoh)erbz3k1-#ugli)!y_y7s82joj&)3*48kezsq+_gc
+      - SECRET_KEY=sodeiqdoh)erbz3k1-#ugli)!y_y7s82joj&)3*48kezsq+_gl
     volumes:
     - .:/code
     ports: 
