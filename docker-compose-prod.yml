@@ -13,7 +13,7 @@ services:
     command: gunicorn pennytrust_backend.wsgi -b 0.0.0.0:8000
     environment: 
       - ENVIRONMENT=production
-      - DEBUG=False
+      - DEBUG=0
       - SECRET_KEY=sodeiqdoh)erbz3k1-#ugli)!y_y7s82joj&)3*48kezsq+_gc
     ports: 
     - 8000:8000

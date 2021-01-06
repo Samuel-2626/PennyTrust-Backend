@@ -10,7 +10,7 @@ ENVIRONMENT = os.environ.get('ENVIRONMENT', default='development')
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = str(os.environ.get('DEBUG', default='True'))
+DEBUG = int(os.environ.get('DEBUG', default=1))
 
 ALLOWED_HOSTS = ['fathomless-beach-00475.herokuapp.com', 'localhost', '127.0.0.1']
 
@@ -122,6 +122,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+# Security Updates
 
 if ENVIRONMENT == 'production':
     SECURE_BROWSER_XSS_FILTER = True
