@@ -10,6 +10,8 @@ whitenoise = "*"
 gunicorn = "*"
 dj-database-url = "*"
 heroku = "*"
+django-allauth = "*"
+django-rest-auth = "*"
 
 [dev-packages]
 
