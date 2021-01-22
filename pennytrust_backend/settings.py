@@ -34,9 +34,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'rest_auth',
     'rest_auth.registration',
+    'corsheaders',
 
     # Local
     'profiles.apps.ProfilesConfig',
+    'apis.apps.ApisConfig',
     
 ]
 
@@ -47,6 +49,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,7 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATED_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
@@ -155,6 +158,18 @@ REST_FRAMEWORK = {
 #     'REGISTER_SERIALIZER': 'pennytrust_backend.serializers.RegisterSerializer'
 # }
 
+
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = False
+
+AUTHENTICATION_BACKENDS = [
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
@@ -182,3 +197,14 @@ import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
+
+# CORS_ALLOWED_ORIGINS = [
+#     "https://example.com",
+#     "https://sub.example.com",
+#     "http://localhost:8080",
+#     "http://localhost:3000",
+#     "http://localhost:8000",
+#     "http://127.0.0.1:9000"
+# ]
+
+CORS_ORIGIN_ALLOW_ALL = True

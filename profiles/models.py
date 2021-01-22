@@ -101,35 +101,35 @@ class Profile(models.Model):
 
   user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='my_profile')
 
-  first_name = models.CharField(max_length=255, blank=False, null=True)
+  first_name = models.CharField(max_length=255, blank=True, null=True)
 
-  last_name = models.CharField(max_length=255, blank=False, null=True)
+  last_name = models.CharField(max_length=255, blank= True, null=True)
 
-  title = models.CharField(choices=STATUS_TITLE, max_length=20, blank=False, null=False)
+  title = models.CharField(choices=STATUS_TITLE, max_length=20, blank=True, null=True)
 
-  gender = models.CharField(choices=STATUS_GENDER, max_length=10, blank=False, null=False)
+  gender = models.CharField(choices=STATUS_GENDER, max_length=10, blank=True, null=True)
   
-  date_of_birth = models.DateField(blank=False, null=False)
+  date_of_birth = models.DateField(blank=True, null=True)
 
-  phone_number = models.CharField(max_length=20, blank=False, null=False)
+  phone_number = models.CharField(max_length=20, blank=True, null=True)
 
-  address = models.CharField(max_length=50, blank=False, null=False)
+  address = models.CharField(max_length=50, blank=True, null=True)
 
-  city = models.CharField(max_length=15, blank=False, null=False)
+  city = models.CharField(max_length=15, blank=True, null=True)
   
-  state = models.CharField(choices=STATUS_STATE, max_length=10, blank=False, null=False)
+  state = models.CharField(choices=STATUS_STATE, max_length=10, blank=True, null=True)
 
-  place_of_work = models.CharField(max_length=20, blank=False, null=False)
+  place_of_work = models.CharField(max_length=20, blank=True, null=True)
 
-  ippis_number = models.CharField(max_length=20, blank=False, null=False)
+  ippis_number = models.CharField(max_length=20, blank=True, null=True)
 
-  salary_bank_name = models.CharField(choices=STATUS_BANK, max_length=20, blank=False, null=False)
+  salary_bank_name = models.CharField(choices=STATUS_BANK, max_length=20, blank=True, null=True)
 
-  account_number = models.PositiveSmallIntegerField(blank=False, null=False)
+  account_number = models.BigIntegerField(blank=True, null=True)
 
-  loan_amount = models.DecimalField(max_digits=10, decimal_places=2, blank=False, null=False)
+  loan_amount = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True)
 
-  tenor = models.CharField(choices=STATUS_TENOR, max_length=10, blank=False, null=False)
+  tenor = models.CharField(choices=STATUS_TENOR, max_length=10, blank=True, null=True)
 
   referral_code = models.CharField(max_length=20, blank=True, null=True)
 
