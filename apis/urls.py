@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import ProfileCreate, ProfileDetail, GetUsersEmail, GetProfilesIppisNumber, GetProfilesNumber, GetProfilesAccountNumber, GetUser
+from .views import ProfileDetail, GetUsersEmail, GetProfilesIppisNumber, GetProfilesNumber, GetProfilesAccountNumber, GetUser, ProfileCreate, GetProfile
 
 
 urlpatterns = [
@@ -10,5 +10,6 @@ urlpatterns = [
     path('get_profiles_ippis_number/', GetProfilesIppisNumber.as_view()),
     path('get_profiles_phone_number/', GetProfilesNumber.as_view()),
     path('get_profiles_account_number/', GetProfilesAccountNumber.as_view()),
-    path('get_user/', GetUser.as_view()),
+    path('get_user/<str:email>', GetUser.as_view()),
+    path('get_profile/<int:user>', GetProfile.as_view()),
 ]
